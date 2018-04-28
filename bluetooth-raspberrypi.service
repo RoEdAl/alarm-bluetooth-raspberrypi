@@ -1,0 +1,19 @@
+[Unit]
+Description=Broadcom BCM43438 bluetooth HCI
+ConditionPathIsDirectory=/proc/device-tree/soc/gpio@7e200000/bt_pins
+DefaultDependencies=no
+Wants=local-fs.target
+Before=sysinit.target shutdown.target
+After=systemd-modules-load.service local-fs.target
+After=sys-subsystem-serial-devices-ttyAMA0.device
+RefuseManualStart=yes
+RefuseManualStop=yes
+Conflicts=shutdown.target
+
+[Service]
+ExecStart=/usr/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000 -N
+ProtectHome=true
+ProtectSystem=full
+
+[Install]
+WantedBy=sysinit.target
