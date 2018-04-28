@@ -12,6 +12,7 @@ Conflicts=shutdown.target
 
 [Service]
 ExecStart=/usr/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000 -N
+LimitNPROC=1
 ProtectHome=true
 ProtectSystem=full
 
