@@ -57,7 +57,7 @@ Command: `dmesg|grep Bluetooth`
 ...
 [    7.725604] Bluetooth: Core ver 2.22
 [    7.727389] Bluetooth: HCI device and connection manager initialized
-[   7.728343] Bluetooth: HCI socket layer initialized
+[    7.728343] Bluetooth: HCI socket layer initialized
 [    7.729234] Bluetooth: L2CAP socket layer initialized
 [    7.730161] Bluetooth: SCO socket layer initialized
 [    7.757272] Bluetooth: HCI UART driver ver 2.3
