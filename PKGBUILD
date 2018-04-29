@@ -1,7 +1,7 @@
 # Maintainer: Edmunt Pienkowsky <roed@onet.eu>
 
 pkgname=bluetooth-raspberrypi
-pkgver=1
+pkgver=2
 pkgrel=1
 pkgdesc='Bluetooth support for Raspberry Pi'
 arch=('any')
@@ -10,11 +10,11 @@ url='http://wiki.archlinux.org/index.php/bluetooth'
 depends=('firmware-raspberrypi' 'bluez-utils')
 conflicts=('pi-bluetooth')
 options=('!strip')
-source=('bluetooth-raspberrypi.service'
+source=('bluetooth-raspberrypi@.service'
         'bluetooth-raspberrypi.conf'
         '61-amba-tty-alias.rules')
-md5sums=('8e965b8e57cb70f7ef8a82b431380b94'
-         '80ee98fd2dfec67abeeb8e602f226a15'
+md5sums=('690edc48aed27f518128d79a5e24a952'
+         '7d32416a03fba468845cf8b22ef96a05'
          '9406dbec74def6d99605b5bbab2a6ed5')
 
 package() {
@@ -24,7 +24,7 @@ package() {
   install -d "${pkgdir}/usr/lib/udev/rules.d"
   install -d "${pkgdir}/usr/lib/firmware/updates/brcm"
 
-  install -m 0644 bluetooth-raspberrypi.service "${pkgdir}/usr/lib/systemd/system"
+  install -m 0644 bluetooth-raspberrypi@.service "${pkgdir}/usr/lib/systemd/system"
   install -m 0644 bluetooth-raspberrypi.conf "${pkgdir}/usr/lib/systemd/system/bluetooth.service.d"
   install -m 0644 61-amba-tty-alias.rules "${pkgdir}/usr/lib/udev/rules.d"
 
