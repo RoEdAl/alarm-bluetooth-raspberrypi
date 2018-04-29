@@ -1,14 +1,14 @@
-#
-# bluetooth-raspberrypi
-#
+# Maintainer: Edmunt Pienkowsky <roed@onet.eu>
 
 pkgname=bluetooth-raspberrypi
 pkgver=1
 pkgrel=1
-pkgdesc="Bluetooth support for Raspberry Pi"
+pkgdesc='Bluetooth support for Raspberry Pi'
 arch=('any')
 license=('GPL')
+url='http://wiki.archlinux.org/index.php/bluetooth'
 depends=('firmware-raspberrypi' 'bluez-utils')
+conflicts=('pi-bluetooth')
 options=('!strip')
 source=('bluetooth-raspberrypi.service'
         'bluetooth-raspberrypi.conf'
