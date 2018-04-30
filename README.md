@@ -2,7 +2,7 @@
 
 Arch Linux ARM package enabling integrated Bluetooth on Raspberry Pi 3B/3B+/Zero W.
 This is modification of [`pi-bluetooth`](//aur.archlinux.org/packages/pi-bluetooth/) (AUR) package.
-The major changes are:
+The main changes are:
 
 * Use `btattach` instead of deprecated `hciattach` tool.
   `bluetooth-raspberrypi` depends only on standard `firmware-raspberrypi` and `bluez-utils` packages.
@@ -17,7 +17,7 @@ The major changes are:
 
 ## Kernel messages
 
-### Raspberry Pi 3 Model B Plus:
+### Raspberry Pi 3 Model B Plus
 
 ````
 [    0.000000] OF: fdt: Machine model: Raspberry Pi 3 Model B Plus Rev 1.3
@@ -28,6 +28,9 @@ The major changes are:
 [    7.778212] Bluetooth: hci1: BCM (003.001.025) build 0000
 [   13.320384] Bluetooth: hci1: BCM (003.001.025) build 0139
 ````
+
+For *Raspberry Pi 3 Model B Plus* `btattach` tries to load firmware  from `BCM.hcd` instead of `BCM4345C0.hcd`.
+As a workaround this package just creates `BCM.hcd` as symlink to `BCM4345C0.hcd`.
 
 ### Raspberry Pi 3 Model B
 
