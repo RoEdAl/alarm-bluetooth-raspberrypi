@@ -2,12 +2,12 @@
 
 pkgname=bluetooth-raspberrypi
 pkgver=2
-pkgrel=1
+pkgrel=2
 pkgdesc='Bluetooth support for Raspberry Pi'
 arch=('any')
 license=('GPL')
 url='http://wiki.archlinux.org/index.php/bluetooth'
-depends=('firmware-raspberrypi' 'bluez-utils')
+depends=('firmware-raspberrypi>=4' 'bluez-utils')
 conflicts=('pi-bluetooth')
 options=('!strip')
 source=('bluetooth-raspberrypi@.service'
