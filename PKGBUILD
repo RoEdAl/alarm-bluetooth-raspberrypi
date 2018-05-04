@@ -1,8 +1,8 @@
 # Maintainer: Edmunt Pienkowsky <roed@onet.eu>
 
 pkgname=bluetooth-raspberrypi
-pkgver=2
-pkgrel=2
+pkgver=3
+pkgrel=1
 pkgdesc='Bluetooth support for Raspberry Pi'
 arch=('any')
 license=('GPL')
@@ -13,9 +13,9 @@ options=('!strip')
 source=('bluetooth-raspberrypi@.service'
         'bluetooth-raspberrypi.conf'
         '61-amba-tty-alias.rules')
-md5sums=('690edc48aed27f518128d79a5e24a952'
+md5sums=('46ad73f4a49de6362a0a9654362cb42c'
          '7d32416a03fba468845cf8b22ef96a05'
-         '9406dbec74def6d99605b5bbab2a6ed5')
+         '11aa84ae1f76d6c282dcf62c67f4fc02')
 
 package() {
   cd "${srcdir}"
