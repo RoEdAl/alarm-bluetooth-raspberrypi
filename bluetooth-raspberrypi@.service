@@ -5,7 +5,7 @@ DefaultDependencies=no
 Wants=local-fs.target
 Before=sysinit.target shutdown.target
 BindsTo=sys-subsystem-serial-devices-%i.device
-After=sys-subsystem-serial-devices-%i.device local-fs.target bluetooth.target
+After=sys-subsystem-serial-devices-%i.device local-fs.target
 RefuseManualStart=yes
 RefuseManualStop=yes
 Conflicts=shutdown.target
@@ -15,6 +15,10 @@ ExecStart=/usr/bin/btattach -B /dev/%i -P bcm -S 3000000 -N
 LimitNPROC=1
 ProtectHome=true
 ProtectSystem=full
+NoNewPrivileges=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+ProtectKernelModules=true
 
 [Install]
 WantedBy=sysinit.target
