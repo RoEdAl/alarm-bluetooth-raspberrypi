@@ -9,11 +9,14 @@ The main changes are:
 * Do not install firmware. Firmware is already included in `firmware-raspberrypi` package.
 * Do not auto power-on using `hciattach` and udev rule.
   This method is deprecated - see [here](//wiki.archlinux.org/index.php/bluetooth#Auto_power-on_after_boot) for more information.
+  
+This package doesn't work with [`pi3-miniuart-bt`](//github.com/raspberrypi/firmware/blob/master/boot/overlays/README) device tree overlay.
 
 ## Instalation
 
 * [Build](//wiki.archlinux.org/index.php/Makepkg#Usage) and install this package.
-* (Re)enable `bluetooth` service and reboot.
+* Remove the attachment of `/dev/ttyAMA0` to the console from `/boot/cmdline.txt`.
+* (Re)enable [`bluetooth`](//wiki.archlinux.org/index.php/bluetooth) service and **reboot**.
 
 ## Kernel messages
 
