@@ -1,0 +1,6 @@
+ACTION=="add", \
+        SUBSYSTEMS=="platform", \
+        SUBSYSTEM=="tty", \
+        KERNEL=="ttyS[0-9]*", \
+        ENV{SYSTEMD_ALIAS}="/sys/subsystem/serial/devices/%k"
+
