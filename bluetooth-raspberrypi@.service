@@ -1,6 +1,8 @@
 [Unit]
 Description=Broadcom BCM434* Bluetooth HCI
 ConditionPathIsDirectory=/proc/device-tree/soc/gpio@7e200000/bt_pins
+Documentation=http://github.com/raspberrypi/firmware/blob/master/boot/overlays/README
+Documentation=http://www.raspberrypi.org/documentation/configuration/uart.md
 DefaultDependencies=no
 Wants=local-fs.target
 Before=sysinit.target shutdown.target
@@ -11,7 +13,8 @@ RefuseManualStop=yes
 Conflicts=shutdown.target
 
 [Service]
-ExecStart=/usr/bin/btattach -B /dev/%i -P bcm -S 3000000 -N
+EnvironmentFile=/etc/conf.d/%p
+ExecStart=/usr/bin/btattach -B /dev/%i -P bcm -S $BAUD_RATE -N
 LimitNPROC=1
 ProtectHome=true
 ProtectSystem=full
