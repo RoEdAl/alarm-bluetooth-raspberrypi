@@ -16,6 +16,10 @@ The main changes are:
   `bluetooth-raspberrypi` or `bluetooth-raspberrypi-miniuart` package.
   Use `bluetooth-raspberrypi-miniuart` only with
   [`pi3-miniuart-bt`](//github.com/raspberrypi/firmware/blob/master/boot/overlays/README) device tree overlay.
+  You can also use [pre-built packages](//github.com/RoEdAl/alarm-bluetooth-raspberrypi/releases):
+  ````
+  pacman -U https://github.com/RoEdAl/alarm-bluetooth-raspberrypi/releases/download/vx-y/bluetooth-raspberrypi-x-y-any.pkg.tar.xz
+  ````
 * Remove the attachment of `/dev/ttyAMA0` (`/dev/ttyS0` in mini-UART version)
   to the console from `/boot/cmdline.txt`.
 * Enable [`bluetooth`](//wiki.archlinux.org/index.php/bluetooth) service and **reboot**.
