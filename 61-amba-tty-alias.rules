@@ -1,6 +1,0 @@
-# ttyAMA* alias
-ACTION=="add", \
-	SUBSYSTEMS=="amba", \
-	SUBSYSTEM=="tty", \
-	KERNEL=="ttyAMA[0-9]*", \
-	ENV{SYSTEMD_ALIAS}="/sys/subsystem/serial/devices/%k"

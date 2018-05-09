@@ -10,13 +10,15 @@ The main changes are:
 * Do not auto power-on using `hciattach` and udev rule.
   This method is deprecated - see [here](//wiki.archlinux.org/index.php/bluetooth#Auto_power-on_after_boot) for more information.
   
-This package doesn't work with [`pi3-miniuart-bt`](//github.com/raspberrypi/firmware/blob/master/boot/overlays/README) device tree overlay.
-
 ## Instalation
 
-* [Build](//wiki.archlinux.org/index.php/Makepkg#Usage) and install this package.
-* Remove the attachment of `/dev/ttyAMA0` to the console from `/boot/cmdline.txt`.
-* (Re)enable [`bluetooth`](//wiki.archlinux.org/index.php/bluetooth) service and **reboot**.
+* [Build](//wiki.archlinux.org/index.php/Makepkg#Usage) and install
+  `bluetooth-raspberrypi` or `bluetooth-raspberrypi-miniuart` package.
+  Use `bluetooth-raspberrypi-miniuart` only with
+  [`pi3-miniuart-bt`](//github.com/raspberrypi/firmware/blob/master/boot/overlays/README) device tree overlay.
+* Remove the attachment of `/dev/ttyAMA0` (`/dev/ttyS0` in mini-UART version)
+  to the console from `/boot/cmdline.txt`.
+* Enable [`bluetooth`](//wiki.archlinux.org/index.php/bluetooth) service and **reboot**.
 
 ## Kernel messages
 

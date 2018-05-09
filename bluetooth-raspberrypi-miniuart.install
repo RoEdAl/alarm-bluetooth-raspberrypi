@@ -1,4 +1,4 @@
 post_install() {
-  echo '  bluetooth-raspberrypi-miniuart: Please remember to set core_freq=250 in /boot/config.txt.'
-  echo '  bluetooth-raspberrypi-miniuart: More info - http://github.com/raspberrypi/firmware/blob/master/boot/overlays/README'
+  echo '  [mini-UART]: Please remember to set core_freq=250 and dtoverlay=pi3-miniuart-bt in config.txt.'
+  echo '  [mini-UART]: More info - http://github.com/raspberrypi/firmware/blob/master/boot/overlays/README'
 }
