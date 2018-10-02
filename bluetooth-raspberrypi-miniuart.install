@@ -1,4 +1,0 @@
-post_install() {
-  echo '  [mini-UART]: Please remember to set core_freq=250 and dtoverlay=pi3-miniuart-bt in config.txt.'
-  echo '  [mini-UART]: More info - http://github.com/raspberrypi/firmware/blob/master/boot/overlays/README'
-}

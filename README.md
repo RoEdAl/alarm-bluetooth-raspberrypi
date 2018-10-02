@@ -1,28 +1,22 @@
 # bluetooth-raspberrypi
 
 Arch Linux ARM package enabling integrated Bluetooth on Raspberry Pi 3B/3B+/Zero W.
-This is modification of [`pi-bluetooth`](//aur.archlinux.org/packages/pi-bluetooth/) (AUR) package.
-The main changes are:
 
-* Use `btattach` instead of deprecated `hciattach` tool.
-  `bluetooth-raspberrypi` depends only on standard `firmware-raspberrypi` and `bluez-utils` packages.
-* Do not install firmware. Firmware is already included in `firmware-raspberrypi` package.
-* Do not auto power-on using `hciattach` and udev rule.
-  This method is deprecated - see [here](//wiki.archlinux.org/index.php/bluetooth#Auto_power-on_after_boot) for more information.
-  
+The idea of this solution is taken from [shenghaoyang/blueEnable_ALARM_non_mainline.md](https://gist.github.com/shenghaoyang/92e6dd65b9f0cc736a419f3e640663c2).
+Many thanks to Shenghao Yang.
+
 ## Instalation
 
-* [Build](//wiki.archlinux.org/index.php/Makepkg#Usage) and install
-  `bluetooth-raspberrypi` or `bluetooth-raspberrypi-miniuart` package.
-  Use `bluetooth-raspberrypi-miniuart` only with
-  [`pi3-miniuart-bt`](//github.com/raspberrypi/firmware/blob/master/boot/overlays/README) device tree overlay.
+* [Build](//wiki.archlinux.org/index.php/Makepkg#Usage) and install `bluetooth-raspberrypi` package.
   You can also use [pre-built packages](//github.com/RoEdAl/alarm-bluetooth-raspberrypi/releases):
   ````
   pacman -U https://github.com/RoEdAl/alarm-bluetooth-raspberrypi/releases/download/vx-y/bluetooth-raspberrypi-x-y-any.pkg.tar.xz
   ````
-* Remove the attachment of `/dev/ttyAMA0` (`/dev/ttyS0` in mini-UART version)
-  to the console from `/boot/cmdline.txt`.
-* Enable [`bluetooth`](//wiki.archlinux.org/index.php/bluetooth) service and **reboot**.
+* Remove the attachment of `/dev/ttyAMA0` (`/dev/ttyS0` in mini-UART version) to the console from `/boot/cmdline.txt`.
+* Edit `/boot/config.txt` file and add `bcmbt` overlay:
+  ````
+  dtoverlay=bcmbt
+  ````
 
 ## Kernel messages
 
@@ -38,7 +32,7 @@ The main changes are:
 [   13.320384] Bluetooth: hci1: BCM (003.001.025) build 0139
 ````
 
-For *Raspberry Pi 3 Model B Plus* `btattach` tries to load firmware  from `BCM.hcd` instead of `BCM4345C0.hcd`.
+For *Raspberry Pi 3 Model B Plus* kernel tries to load firmware  from `BCM.hcd` instead of `BCM4345C0.hcd`.
 As a workaround this package just creates `BCM.hcd` as symlink to `BCM4345C0.hcd`.
 
 ### Raspberry Pi 3 Model B
