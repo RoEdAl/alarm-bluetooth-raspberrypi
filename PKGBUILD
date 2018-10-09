@@ -2,13 +2,13 @@
 
 pkgname='bluetooth-raspberrypi'
 pkgver=6
-pkgrel=1
+pkgrel=2
 pkgdesc='Bluetooth support for Raspberry Pi'
 conflicts=('pi-bluetooth')
 arch=('any')
 license=('GPL')
 url='http://wiki.archlinux.org/index.php/bluetooth'
-depends=('firmware-raspberrypi>=4' 'linux>=4.14.59')
+depends=('firmware-raspberrypi>=4' 'linux-raspberrypi>=4.14.59')
 makedepends=('dtc')
 options=('!strip')
 source=('bcmbt-overlay.dts')
