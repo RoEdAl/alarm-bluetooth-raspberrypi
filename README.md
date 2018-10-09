@@ -8,12 +8,12 @@ Many thanks to Shenghao Yang.
 ## Instalation
 
 * [Build](//wiki.archlinux.org/index.php/Makepkg#Usage) and install `bluetooth-raspberrypi` package.
-  You can also use [pre-built packages](//github.com/RoEdAl/alarm-bluetooth-raspberrypi/releases):
+  You can also use [pre-built packages](//github.com/RoEdAl/alarm-bluetooth-raspberrypi/releases/latest):
   ````
   pacman -U https://github.com/RoEdAl/alarm-bluetooth-raspberrypi/releases/download/vx-y/bluetooth-raspberrypi-x-y-any.pkg.tar.xz
   ````
 * Remove the attachment of `/dev/ttyAMA0` (`/dev/ttyS0` in mini-UART version) to the console from `/boot/cmdline.txt`.
-* Edit `/boot/config.txt` file and add `bcmbt` overlay:
+* Add `bcmbt` overlay to `/boot/config.txt` file:
   ````
   dtoverlay=bcmbt
   ````
